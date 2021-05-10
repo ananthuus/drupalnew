@@ -1,0 +1,6 @@
+name: Purchase Form
+type: module
+description: 'Custom Form'
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9

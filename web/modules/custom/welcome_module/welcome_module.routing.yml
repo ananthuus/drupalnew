@@ -1,0 +1,7 @@
+welcome_module.my_page:
+  path: '/mypage/page'
+  defaults:
+    _controller: '\Drupal\welcome_module\Controller\ExampleController::myPage'
+    _title: 'My first page in D8'
+  requirements:
+    _permission: 'access content'

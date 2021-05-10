@@ -1,0 +1,11 @@
+name: My Custom Block
+type: module
+description: 'First Custom Drupal 8 Block.'
+package: Custom
+version: 1.0
+dependencies:
+- node
+- block
+core: 8.x
+core_version_requirement: ^8 || ^9
+
