@@ -17,8 +17,7 @@ class ExampleController extends ControllerBase {
    */
   public function myPage() {
     return [
-      '#markup' => 'Hello, world',
+    '#markup' => 'Hello, this is a page',
     ];
   }
-
 }

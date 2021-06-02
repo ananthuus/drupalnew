@@ -1,0 +1,8 @@
+services:
+ demo_badge.say_hello:
+   class: Drupal\demo_badge\DemoServices
+
+services:
+  demo_badge.services:
+    class: Drupal\demo_badge\TestBadgeServices
+    arguments: ['@currentUser', '@http_client']

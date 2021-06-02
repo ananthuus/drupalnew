@@ -1,4 +1,48 @@
 <?php
 
+/*
+ * Implementation of hook_form_alter()
+ */
+/*function welcome_module_form_alter(&$form, &$form_state, $form_id){
+  // target a single form
+  if($form_id == "node_article_form"){
+    $form['title']['#title'] = t('New Form Title');
+  }
+}*/
+/*
+ * Implements hook_form_alter().
+ */
+/*function welcome_module_form_alter(&$form, $form_state, $form_id) {
+  drupal_set_message("Form ID is : " . $form_id);
+}*/
+/**
+ * Implementation of hook_form_alter().
+ * @see http://api.drupal.org/api/function/hook_form_alter
+ * We add a few custom fields to the default Drupal contact form
+ */
+function welcome_module_form_alter(&$form, &$form_state, $form_id) {
+ if($form_id == 'node_article_form') {
+	$form['description'] = array(
+		'#title' => t('About'),
+		'#type' => 'textfield',
+		'#required' => true,
+	);
+	$form['phone'] = array(
+		'#title' => t('Your phone'),
+		'#type' => 'textfield',
+	);
+  }
+}
+/*use Drupal\views\Views;
+
+$view = Views::getView('demo user');
+$form['demo user'] = [
+  '#type' => 'view',
+  '#name' => 'demo user',
+  '#arguments' => [$user_id],
+];
+$form['demo user'] = $view->buildRenderable('block_1', [$user_id]);*/
+
+
 
 

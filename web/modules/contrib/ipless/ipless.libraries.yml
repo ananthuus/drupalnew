@@ -1,0 +1,12 @@
+ipless.watching:
+  version: 1.0
+  js:
+    assets/js/ipless.watching.js: {}
+  less:
+    theme:
+      assets/css/ipless.watching.less: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/jquery.cookie

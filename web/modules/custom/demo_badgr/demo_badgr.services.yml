@@ -1,0 +1,3 @@
+services:
+  demo_badgr.final:
+    class: Drupal\demo_badgr\TestBadgeServices

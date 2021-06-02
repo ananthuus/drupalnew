@@ -4,4 +4,4 @@ custom_form.my_form:
     _form: '\Drupal\purchase_form\Form\PurchaseForm'
     _title: 'Purchase Form'
   requirements:
-    _permission: 'access content'
+    _permission: 'form permission'

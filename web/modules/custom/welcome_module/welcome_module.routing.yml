@@ -4,4 +4,12 @@ welcome_module.my_page:
     _controller: '\Drupal\welcome_module\Controller\ExampleController::myPage'
     _title: 'My first page in D8'
   requirements:
+    _permission: 'Test User'
+
+welcome_module.demo:
+  path: '/customuser'
+  defaults:
+    _controller: '\Drupal\welcome_module\Controller\DemoController::demoUser'
+    _title: 'My first page in D8'
+  requirements:
     _permission: 'access content'

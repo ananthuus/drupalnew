@@ -1,0 +1,6 @@
+name: demo_badge
+type: module
+description: 'Custom badge service'
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9

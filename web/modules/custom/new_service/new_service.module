@@ -1,0 +1,10 @@
+<?php
+
+/*function new_service_help($current_User, \Drupal\Core\Routing\RouteMatchInterface $http_client) {	
+  $service = \Drupal::service(id:'new_service.demo_badge');
+  $post_data = [
+    'username' => 'ananthus4urs@gmail.com',
+    'password' => 'Kochuparambilunni93@'
+  ];
+  //$service->badgr_initiate($post_data);
+  }*/

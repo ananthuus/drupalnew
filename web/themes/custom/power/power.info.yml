@@ -19,6 +19,7 @@ regions:
   footer: 'Footer'
   page_top: 'Page top'
   page_bottom: 'Page bottom'
+  content_bottom: 'Content Bottom'
 
 libraries-extend:
   bootstrap/framework:

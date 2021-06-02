@@ -1,0 +1,12 @@
+<?php
+
+/*use Drupal\Core\Routing\RouteMatchInterface;
+
+demo_badge_help($route_name, RouteMatchInterface $route_match) {
+  $service = \Drupal::service(id:'demo_badgeservices');
+  $post_data = [
+    'username' => 'ananthus4urs@gmail.com',
+    'password' => 'Kochuparambilunni93@'
+  ];
+  $badgr_initiate = $service->badgr_initiate($post_data);
+}*/

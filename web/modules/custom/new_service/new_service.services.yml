@@ -1,0 +1,5 @@
+services:
+  new_service.demo_badge:
+    class: Drupal\new_service\TestBadgeServices
+    arguments: ['@http_client','@current_user']
+    
