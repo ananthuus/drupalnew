@@ -1,0 +1,7 @@
+custom_form.my_form:
+  path: '/badger'
+  defaults:
+    _form: '\Drupal\new_service\Form\BadgrForm'
+    _title: 'Badger Form'
+  requirements:
+    _permission: 'access content'
