@@ -25,12 +25,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '47e4f75250a355b669c88e82469a8a063a01f5e1',
     'name' => 'drupal/recommended-project',
   ),
   'versions' => 
@@ -547,6 +547,15 @@ private static $installed = array (
       ),
       'reference' => '1.0.0',
     ),
+    'drupal/devel_php' => 
+    array (
+      'pretty_version' => '1.3.0',
+      'version' => '1.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8.x-1.3',
+    ),
     'drupal/drupal8_zymphonies_theme' => 
     array (
       'pretty_version' => '1.4.0',
@@ -697,6 +706,15 @@ private static $installed = array (
         0 => '8.9.14',
       ),
     ),
+    'drupal/ipless' => 
+    array (
+      'pretty_version' => '3.0.0',
+      'version' => '3.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3.0.0',
+    ),
     'drupal/jsonapi' => 
     array (
       'replaced' => 
@@ -738,6 +756,15 @@ private static $installed = array (
       array (
         0 => '8.9.14',
       ),
+    ),
+    'drupal/maillog' => 
+    array (
+      'pretty_version' => '1.0.0-beta1',
+      'version' => '1.0.0.0-beta1',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8.x-1.0-beta1',
     ),
     'drupal/media' => 
     array (
@@ -862,12 +889,12 @@ private static $installed = array (
     ),
     'drupal/recommended-project' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '47e4f75250a355b669c88e82469a8a063a01f5e1',
     ),
     'drupal/responsive_image' => 
     array (
@@ -891,6 +918,15 @@ private static $installed = array (
       array (
         0 => '8.9.14',
       ),
+    ),
+    'drupal/rules' => 
+    array (
+      'pretty_version' => '3.0.0-alpha6',
+      'version' => '3.0.0.0-alpha6',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8.x-3.0-alpha6',
     ),
     'drupal/search' => 
     array (
@@ -1019,6 +1055,16 @@ private static $installed = array (
       array (
         0 => '8.9.14',
       ),
+    ),
+    'drupal/typed_data' => 
+    array (
+      'pretty_version' => 'dev-1.x',
+      'version' => 'dev-1.x',
+      'aliases' => 
+      array (
+        0 => '1.x-dev',
+      ),
+      'reference' => '27555f47b522730d04f3b33c9a46c0acbcb3146e',
     ),
     'drupal/update' => 
     array (
@@ -1571,6 +1617,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'e0c1b495cfac064f4f5c4bcb6bf67bb7f345ed04',
+    ),
+    'wikimedia/less.php' => 
+    array (
+      'pretty_version' => '1.8.2',
+      'version' => '1.8.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e238ad228d74b6ffd38209c799b34e9826909266',
     ),
     'zendframework/zend-diactoros' => 
     array (

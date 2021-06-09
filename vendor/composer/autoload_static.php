@@ -364,6 +364,13 @@ class ComposerStaticInitbfc482997a3e0625d1fbfcc86d2b1701
                 0 => __DIR__ . '/..' . '/stack/builder/src',
             ),
         ),
+        'L' => 
+        array (
+            'Less' => 
+            array (
+                0 => __DIR__ . '/..' . '/wikimedia/less.php/lib',
+            ),
+        ),
         'E' => 
         array (
             'EasyRdf_' => 
@@ -419,6 +426,7 @@ class ComposerStaticInitbfc482997a3e0625d1fbfcc86d2b1701
         'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
+        'lessc' => __DIR__ . '/..' . '/wikimedia/less.php/lessc.inc.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
