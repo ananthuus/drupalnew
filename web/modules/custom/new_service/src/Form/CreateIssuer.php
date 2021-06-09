@@ -10,7 +10,7 @@ use Drupal\new_service\TestBadgeServices;
 /**
  * Provides route responses for the Example module.
  */
-class BadgrForm extends FormBase {
+class CreateIssuer extends FormBase {
 
   /**
    * @return string
@@ -27,30 +27,25 @@ class BadgrForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $form['user_name'] = array(
+    $form['badgr_name'] = array(
       '#type' => 'textfield',
       '#title' => t('Name:'),
       '#required' => TRUE,
-    ); 
-    $form['website_url'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Website URL:'),
-      '#required' => TRUE,
     );  
-    $form['mail_id'] = array(
-      '#type' => 'email',
-      '#title' => t('Contact Email:'),
-      '#required' => TRUE,
-    );
-    $form['description'] = array(
+    $form['badgr_description'] = array(
       '#type' => 'textfield',
       '#title' => t('Description:'),
+      '#required' => TRUE,
+    ); 
+     $form['badgr_criteriaUrl'] = array(
+      '#type' => 'textfield',
+      '#title' => t('criteriaUrl:'),
       '#required' => TRUE,
     ); 
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = array(
       '#type' => 'submit',
-      '#value' => $this->t('Create Issuer'),
+      '#value' => $this->t('Save'),
       '#button_type' => 'primary',
     );
     return $form;
@@ -59,20 +54,12 @@ class BadgrForm extends FormBase {
    
   }
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    /*$db = \Drupal::database();
-    $query = $db->insert('purchase_form');
-    $query->fields([
-      'candidate_name' => $form_state->getValue('candidate_name'),
-      'candidate_mail' => $form_state->getValue('candidate_mail'),
-      'candidate_number' => $form_state->getValue('candidate_number'),
-      'address' => $form_state->getValue('candidate_address'),
-      ])
-    ->execute();*/
-    $user_name = $form_state->getValue('user_name');
-    $website_url = $form_state->getValue('website_url');
-    $mail_id = $form_state->getValue('mail_id');
-    $description = $form_state->getValue('description');
 
+    
+    /*$badgr_name = $form_state->getValue('badgr_name');
+    $badgr_description = $form_state->getValue('badgr_description');
+    $badgr_criteriaUrl = $form_state->getValue('badgr_criteriaUrl');
+    
     $service = \Drupal::service('new_service.demo_badge');
     $config = $this->config('new_service.settings');
     $username = $config->get('username');
@@ -80,12 +67,15 @@ class BadgrForm extends FormBase {
     $post_data = ['username' => $username,'password' => $password];
     
     $result = $service->badgr_initiate($post_data);
-    //ddl($result);
-    //$rt = $result['refreshtoken'];
+    $rt = $result['refreshtoken'];
     $accessToken = $result['accesstoken'];
-    ddl($accessToken);
-    $post_details = ['name' => $user_name, 'url' => $website_url, 'email' => $mail_id, 'Description' => $description];
-    $service->badgr_create_issuer($accessToken,$post_details);
+
+
+    $post_details = ['name' => $user_name,'url' => $website_url,'email' => $mail_id,'Description' => $description];
+    $result = $service->badgr_initiate($post_data);
+    $issuer = $service->badgr_create_issuer($accessToken,$post_details);*/
+
+
     //ddl($result);
     //echo $result;
     //$form_state->setErrorByName($result);
