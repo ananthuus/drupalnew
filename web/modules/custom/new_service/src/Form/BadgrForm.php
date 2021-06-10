@@ -47,6 +47,12 @@ class BadgrForm extends FormBase {
       '#title' => t('Description:'),
       '#required' => TRUE,
     ); 
+    $form['issuer_option'] = array(
+      '#title' => t('select option'),
+      '#type' => 'select',
+      '#description' => 'Select the option.',
+      '#options' => array(t('--- SELECT ---'), t('Create'), t('Delete'), t('Update')),
+    );
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = array(
       '#type' => 'submit',

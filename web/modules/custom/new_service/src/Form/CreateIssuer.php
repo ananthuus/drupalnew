@@ -27,6 +27,29 @@ class CreateIssuer extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    /*$form['my_file'] = array(
+      '#type' => 'managed_file',
+      '#title' => 'my file',
+      '#name' => 'my_custom_file',
+      '#description' => $this->t('my file description'),
+      '#default_value' => $config->get('my_file'),
+      '#upload_location' => 'public://'
+    ); */
+    /*$form['badgr_image'] = array(
+      '#type' => 'managed_file',
+      '#title' => t('Image:'),
+      '#required' => TRUE,
+    ); */
+
+    $form['badgr_image'] = array(
+      '#type' => 'managed_file',
+      '#title' => t('Upload Zip File'),
+      '#upload_validators' => array(
+        'file_validate_extensions' => array('zip ZIP'),
+        'file_validate_size' => array(MAX_FILE_SIZE*1024*1024),
+      ),
+    );
+
     $form['badgr_name'] = array(
       '#type' => 'textfield',
       '#title' => t('Name:'),
@@ -55,8 +78,27 @@ class CreateIssuer extends FormBase {
   }
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
-    
-    /*$badgr_name = $form_state->getValue('badgr_name');
+    //$path = 'myfolder/myimage.png';
+    /*$badgr_image = $form_state->getValue('badgr_image');
+    $type = pathinfo( $badgr_image, PATHINFO_EXTENSION);
+    $data = file_get_contents($badgr_image);
+    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+    ddl($base64);*/
+
+    /*$file = $form_state->getValue('badgr_image');
+    ksm($file);
+    ddl($file);*/
+
+  /*  $fid = reset($form_state->getValue('badgr_image'));
+    File::load($fid);*/
+
+
+    //$image = base64_decode($array->'badgr_image');
+    /*$image = file_get_contents('badgr_image');
+    $base = base64_encode($image);
+    ddl($base);*/
+    /*$badgr_image = $form_state->getValue('badgr_image');
+    $badgr_name = $form_state->getValue('badgr_name');
     $badgr_description = $form_state->getValue('badgr_description');
     $badgr_criteriaUrl = $form_state->getValue('badgr_criteriaUrl');
     
@@ -70,14 +112,8 @@ class CreateIssuer extends FormBase {
     $rt = $result['refreshtoken'];
     $accessToken = $result['accesstoken'];
 
+    $badge_details = ['image' => $badgr_image, 'name' => $badgr_name, 'description' => $badgr_description, 'criteriaUrl' => $badgr_criteriaUrl];
+    $service->badgr_create_issuer_badges($accessToken, $badge_details);*/
 
-    $post_details = ['name' => $user_name,'url' => $website_url,'email' => $mail_id,'Description' => $description];
-    $result = $service->badgr_initiate($post_data);
-    $issuer = $service->badgr_create_issuer($accessToken,$post_details);*/
-
-
-    //ddl($result);
-    //echo $result;
-    //$form_state->setErrorByName($result);
   }
 }
