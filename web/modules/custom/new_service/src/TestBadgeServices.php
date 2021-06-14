@@ -142,7 +142,7 @@ class TestBadgeServices {
     return $updateIsuerContent;
   }*/
   
-  public function badgr_update_issuer($accessToken,$entity_id, array $update_details) {
+  public function badgr_update_issuer($accessToken, $entity_id, array $update_details) {
     $updateIsuerContent = $this->httpClient->request(
       'PUT',
       'https://api.badgr.io/v2/issuers/' . $entity_id,
@@ -185,10 +185,10 @@ class TestBadgeServices {
   }*/
 
 
-  public function badgr_create_issuer_badges($accessToken, array $badge_details) {
+  public function badgr_create_issuer_badges($accessToken, $badgr_entity_id, array $badge_details) {
     $create_badge = $this->httpClient->request(
       'POST',
-      'https://api.badgr.io/v2/issuers/GgYNzGRySuOsFrpPcjkXMg/badgeclasses',
+      'https://api.badgr.io/v2/issuers/' . $badgr_entity_id . '/badgeclasses',
       [
       'headers' => ['Authorization'=> 'Bearer ' . $accessToken],
       'form_params' => $badge_details

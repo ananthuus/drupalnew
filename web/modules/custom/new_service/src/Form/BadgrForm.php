@@ -26,39 +26,6 @@ class BadgrForm extends FormBase {
    *   A simple renderable array.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-
-    $form['list_button'] = array(
-      '#type' => 'submit',
-      '#value' => t('List Issuers'),
-    );
-
-    $form['user_name'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Name:'),
-      '#required' => TRUE,
-    ); 
-    $form['website_url'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Website URL:'),
-      '#required' => TRUE,
-    );  
-    $form['mail_id'] = array(
-      '#type' => 'email',
-      '#title' => t('Contact Email:'),
-      '#required' => TRUE,
-    );
-    $form['description'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Description:'),
-      '#required' => TRUE,
-    ); 
-    /*$form['issuer_option'] = array(
-      '#title' => t('select option'),
-      '#type' => 'select',
-      '#description' => 'Select the option.',
-      '#options' => array(t('--- SELECT ---'), t('Create'), t('Update')),
-    );*/
-
     $form['type_options'] = array(
     '#type' => 'value',
     '#value' => array(
@@ -68,11 +35,103 @@ class BadgrForm extends FormBase {
       'List' => t('List'))
     );
     $form['issuer_option'] = array(
-      '#title' => t('Project Type'),
+      '#title' => t('Issuer options'),
       '#type' => 'select',
       '#description' => "Select the type of operation",
       '#options' => $form['type_options']['#value'],
     );
+    $form['user_name'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Name:'),
+      '#required' => TRUE,
+      '#states' => [
+        'optional' => [
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+          ['select[name="issuer_option"]' => ['value' => 'Create']],
+          ['select[name="issuer_option"]' => ['value' => 'Update']],
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+        ],
+        'invisible' => [
+          ':input[name="issuer_option"]' => ['value' => 'List'],
+          //':input[name="issuer_option"]' => ['value' => 'None'],
+        ],
+      ],
+    ); 
+    $form['website_url'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Website URL:'),
+      '#required' => TRUE,
+      '#states' => [
+        'optional' => [
+          ['select[name="issuer_option"]' => ['value' => 'Create']],
+          ['select[name="issuer_option"]' => ['value' => 'Update']],
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ':input[name="issuer_option"]' => ['value' => 'List'],
+          //':input[name="issuer_option"]' => ['value' => 'None'],
+        ],
+      ],
+    ); 
+    $form['issuer_entity_id'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Entity ID:'),
+      //'#required' => TRUE,
+      '#states' => [
+        'optional' => [
+          ['select[name="issuer_option"]' => ['value' => 'Create']],
+          ['select[name="issuer_option"]' => ['value' => 'Update']],
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ':input[name="issuer_option"]' => ['value' => 'List'],
+          ':input[name="issuer_option"]' => ['value' => 'Create'],
+          //':input[name="issuer_option"]' => ['value' => 'None'],
+        ],
+      ],
+    );   
+    $form['mail_id'] = array(
+      '#type' => 'email',
+      '#title' => t('Contact Email:'),
+      '#required' => TRUE,
+      '#states' => [
+        'optional' => [
+          ['select[name="issuer_option"]' => ['value' => 'Create']],
+          ['select[name="issuer_option"]' => ['value' => 'Update']],
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ':input[name="issuer_option"]' => ['value' => 'List'],
+          //':input[name="issuer_option"]' => ['value' => 'None'],
+        ],
+      ],
+    );
+    $form['description'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Description:'),
+      '#required' => TRUE,
+      '#states' => [
+        'optional' => [
+          ['select[name="issuer_option"]' => ['value' => 'Create']],
+          ['select[name="issuer_option"]' => ['value' => 'Update']],
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ':input[name="issuer_option"]' => ['value' => 'List'],
+          //':input[name="issuer_option"]' => ['value' => 'None'],
+        ],
+      ],
+    ); 
+    /*$form['issuer_option'] = array(
+      '#title' => t('select option'),
+      '#type' => 'select',
+      '#description' => 'Select the option.',
+      '#options' => array(t('--- SELECT ---'), t('Create'), t('Update')),
+    );*/
 
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = array(
@@ -95,7 +154,8 @@ class BadgrForm extends FormBase {
       'address' => $form_state->getValue('candidate_address'),
       ])
     ->execute();*/
-    $list_button = $form_state->getValue('list_button');
+    //$list_button = $form_state->getValue('list_button');
+    $entity_id = $form_state->getValue('issuer_entity_id');
     $issuer_option = $form_state->getValue('issuer_option');
     $user_name = $form_state->getValue('user_name');
     $website_url = $form_state->getValue('website_url');
@@ -112,26 +172,17 @@ class BadgrForm extends FormBase {
     //ddl($result);
     //$rt = $result['refreshtoken'];
     $accessToken = $result['accesstoken'];
-    ddl($accessToken);
+    //ddl($accessToken);
     $post_details = ['name' => $user_name, 'url' => $website_url, 'email' => $mail_id, 'Description' => $description];
-    $update_details = ['name' => $user_name, 'url' => $website_url, 'email' => $mail_id, 'Description' => $description];
-    $entity_id = 'GgYNzGRySuOsFrpPcjkXMg';
+    //$update_details = ['name' => $user_name, 'url' => $website_url, 'email' => $mail_id, 'Description' => $description];
     if ($issuer_option == ('Create')) {
       $service->badgr_create_issuer($accessToken,$post_details);
      } 
     elseif ($issuer_option == ('Update')) {
-      $service->badgr_update_issuer($accessToken, $entity_id, $update_details);
+      $service->badgr_update_issuer($accessToken, $entity_id, $post_details);
      } 
-    elseif($list_button == ('List Issuers')) {
-      dsm($service->badgr_read_issuer($accessToken));
-      //$values = $result->getBody()->getContents();
-      //$entityId = json_decode($result)->entityId;
-      //$token = array('entityId' => $entityId);
-      
-      //dsm($entityId);
-    } 
-    //ddl($result);
-    //echo $result;
-    //$form_state->setErrorByName($result);
+    elseif ($issuer_option == ('List')) {
+      $list = $service->badgr_read_issuer($accessToken);      
+    }
   }
 }
