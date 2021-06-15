@@ -40,7 +40,7 @@ class BadgrForm extends FormBase {
       '#description' => "Select the type of operation",
       '#options' => $form['type_options']['#value'],
     );
-    $form['user_name'] = array(
+    /*$form['user_name'] = array(
       '#type' => 'textfield',
       '#title' => t('Name:'),
       '#required' => TRUE,
@@ -56,8 +56,27 @@ class BadgrForm extends FormBase {
           //':input[name="issuer_option"]' => ['value' => 'None'],
         ],
       ],
-    ); 
-    $form['website_url'] = array(
+    );*/ 
+
+    $form['user_name'] = [
+      '#type' => 'textfield',
+      '#title' => t('Name:'),
+      '#states' => [
+        'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
+          ['select[name="issuer_option"]' => ['value' => 'Create']],
+          ['select[name="issuer_option"]' => ['value' => 'Update']],
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+      ],
+    ];
+
+    /*$form['website_url'] = array(
       '#type' => 'textfield',
       '#title' => t('Website URL:'),
       '#required' => TRUE,
@@ -73,8 +92,25 @@ class BadgrForm extends FormBase {
           //':input[name="issuer_option"]' => ['value' => 'None'],
         ],
       ],
-    ); 
-    $form['issuer_entity_id'] = array(
+    ); */
+    $form['website_url'] = [
+      '#type' => 'textfield',
+      '#title' => t('Website URL:'),
+      '#states' => [
+        'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
+          ['select[name="issuer_option"]' => ['value' => 'Create']],
+          ['select[name="issuer_option"]' => ['value' => 'Update']],
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+      ],
+    ];
+    /*$form['issuer_entity_id'] = array(
       '#type' => 'textfield',
       '#title' => t('Entity ID:'),
       //'#required' => TRUE,
@@ -91,8 +127,27 @@ class BadgrForm extends FormBase {
           //':input[name="issuer_option"]' => ['value' => 'None'],
         ],
       ],
-    );   
-    $form['mail_id'] = array(
+    ); */
+
+    $form['issuer_entity_id'] = [
+      '#type' => 'textfield',
+      '#title' => t('Entity ID:'),
+      '#states' => [
+        'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
+          ['select[name="issuer_option"]' => ['value' => 'Create']],
+          ['select[name="issuer_option"]' => ['value' => 'Update']],
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+          ['select[name="issuer_option"]' => ['value' => 'Create']],
+        ],
+      ],
+    ];  
+    /*$form['mail_id'] = array(
       '#type' => 'email',
       '#title' => t('Contact Email:'),
       '#required' => TRUE,
@@ -108,8 +163,25 @@ class BadgrForm extends FormBase {
           //':input[name="issuer_option"]' => ['value' => 'None'],
         ],
       ],
-    );
-    $form['description'] = array(
+    );*/
+    $form['mail_id'] = [
+      '#type' => 'textfield',
+      '#title' => t(' Contact Email:'),
+      '#states' => [
+        'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
+          ['select[name="issuer_option"]' => ['value' => 'Create']],
+          ['select[name="issuer_option"]' => ['value' => 'Update']],
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+      ],
+    ];
+   /* $form['description'] = array(
       '#type' => 'textfield',
       '#title' => t('Description:'),
       '#required' => TRUE,
@@ -125,7 +197,24 @@ class BadgrForm extends FormBase {
           //':input[name="issuer_option"]' => ['value' => 'None'],
         ],
       ],
-    ); 
+    ); */
+    $form['description'] = [
+      '#type' => 'textfield',
+      '#title' => t('Description:'),
+      '#states' => [
+        'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
+          ['select[name="issuer_option"]' => ['value' => 'Create']],
+          ['select[name="issuer_option"]' => ['value' => 'Update']],
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ['select[name="issuer_option"]' => ['value' => 'List']],
+          ['select[name="issuer_option"]' => ['value' => 'None']],
+        ],
+      ],
+    ];
     /*$form['issuer_option'] = array(
       '#title' => t('select option'),
       '#type' => 'select',

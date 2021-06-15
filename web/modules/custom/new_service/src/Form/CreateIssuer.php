@@ -49,7 +49,7 @@ class CreateIssuer extends FormBase {
       '#default_value' => $config->get('my_file'),
       '#upload_location' => 'public://'
     ); */
-    $form['badgr_entity_id'] = array(
+  /*  $form['badgr_entity_id'] = array(
       '#type' => 'textfield',
       '#title' => t('Issuer entity ID'),
       //'#required' => TRUE,
@@ -66,8 +66,27 @@ class CreateIssuer extends FormBase {
           ':input[name="badgr_option"]' => ['value' => 'Update'],
         ],
       ],
-    );  
-    $form['badge_entity_id'] = array(
+    ); */ 
+
+    $form['badgr_entity_id'] = [
+      '#type' => 'textfield',
+      '#title' => t('Issuer entity ID'),
+      '#states' => [
+        'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
+          ['select[name="badgr_option"]' => ['value' => 'Create']],
+          ['select[name="badgr_option"]' => ['value' => 'Update']],
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'Update']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
+        ],
+      ],
+    ];
+   /* $form['badge_entity_id'] = array(
       '#type' => 'textfield',
       '#title' => t('Badger entity ID'),
       //'#required' => TRUE,
@@ -84,44 +103,66 @@ class CreateIssuer extends FormBase {
           ':input[name="badgr_option"]' => ['value' => 'Create'],
         ],
       ],
-    );  
-    
-   /* $form['badgr_image'] = array(
-      '#type' => 'managed_file',
-      '#title' => t('Image:'),
-      '#upload_location' => 'public://badgr_image',
-      //'#required' => TRUE,
+    );  */
+    $form['badge_entity_id'] = [
+      '#type' => 'textfield',
+      '#title' => t('Badger entity ID'),
       '#states' => [
         'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
           ['select[name="badgr_option"]' => ['value' => 'Create']],
           ['select[name="badgr_option"]' => ['value' => 'Update']],
           ['select[name="badgr_option"]' => ['value' => 'List']],
           ['select[name="badgr_option"]' => ['value' => 'None']],
         ],
         'invisible' => [
-          ':input[name="badgr_option"]' => ['value' => 'List'],
-          //':input[name="issuer_option"]' => ['value' => 'None'],
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'Create']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
         ],
       ],
-    ); */
+    ];
+    
+    $form['badgr_image'] = [
+      '#type' => 'managed_file',
+      '#title' => t('Image:'),
+      '#upload_location' => 'public://badgr_image',
+      //'#required' => TRUE,
+      '#states' => [
+        'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
+          ['select[name="badgr_option"]' => ['value' => 'Create']],
+          ['select[name="badgr_option"]' => ['value' => 'Update']],
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
+        ],
+      ],
+    ];
 
 
-    $form['badgr_image'] = array(
+    /*$form['badgr_image'] = [
       '#type' => 'managed_file',
       '#title' => t('Image'),
-      '#states' => array(
-        'visible'  => array(':input[name="badgr_option"]' => array('value' => 'Create')),
-        'required' => array(':input[name="badgr_option"]' => array('value' => 'Create')),
-        'invisible' => array(':input[name="badgr_option"]' => array('value' => 'List')),
-      ),
-      '#upload_location' => 'public://badgr_image',
-      '#upload_validators' => array(
-        'file_validate_extensions' => array('png'),
-        'file_validate_size' => array(1048576),
-      ),
-    );
+      '#states' => [
+        'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
+          ['select[name="badgr_option"]' => ['value' => 'Create']],
+          ['select[name="badgr_option"]' => ['value' => 'Update']],
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
+        ],
+      ],
+    ];*/
 
-    $form['badgr_name'] = array(
+    /*$form['badgr_name'] = array(
       '#type' => 'textfield',
       '#title' => t('Name:'),
       //'#required' => TRUE,
@@ -132,13 +173,29 @@ class CreateIssuer extends FormBase {
           ['select[name="badgr_option"]' => ['value' => 'List']],
           ['select[name="badgr_option"]' => ['value' => 'None']],
         ],
-        'invisible' => [
-          ':input[name="badgr_option"]' => ['value' => 'List'],
+        'invisible' => ['select[name="badgr_option"]' => ['value' => 'List']],
           //':input[name="issuer_option"]' => ['value' => 'None'],
+      ],
+    ); */ 
+
+    $form['badgr_name'] = [
+      '#type' => 'textfield',
+      '#title' => t('Name:'),
+      '#states' => [
+        'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
+          ['select[name="badgr_option"]' => ['value' => 'Create']],
+          ['select[name="badgr_option"]' => ['value' => 'Update']],
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
         ],
       ],
-    );  
-    $form['badgr_description'] = array(
+    ];
+    /*$form['badgr_description'] = array(
       '#type' => 'textfield',
       '#title' => t('Description:'),
       //'#required' => TRUE,
@@ -154,7 +211,44 @@ class CreateIssuer extends FormBase {
           //':input[name="issuer_option"]' => ['value' => 'None'],
         ],
       ],
-    ); 
+    ); */
+
+    $form['badgr_description'] = [
+      '#type' => 'textfield',
+      '#title' => t('Description:'),
+      '#states' => [
+        'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
+          ['select[name="badgr_option"]' => ['value' => 'Create']],
+          ['select[name="badgr_option"]' => ['value' => 'Update']],
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
+        ],
+      ],
+    ];
+
+    $form['badgr_criteriaUrl'] = [
+      '#type' => 'textfield',
+      '#title' => t('criteriaUrl:'),
+      '#states' => [
+        'optional' => [
+          // 'select[name="action"]' => ['value' => 'update'],
+          ['select[name="badgr_option"]' => ['value' => 'Create']],
+          ['select[name="badgr_option"]' => ['value' => 'Update']],
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
+        ],
+        'invisible' => [
+          ['select[name="badgr_option"]' => ['value' => 'List']],
+          ['select[name="badgr_option"]' => ['value' => 'None']],
+        ],
+      ],
+    ];
+/*
      $form['badgr_criteriaUrl'] = array(
       '#type' => 'textfield',
       '#title' => t('criteriaUrl:'),
@@ -171,7 +265,7 @@ class CreateIssuer extends FormBase {
           //':input[name="issuer_option"]' => ['value' => 'None'],
         ],
       ],
-    ); 
+    ); */
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = array(
       '#type' => 'submit',
