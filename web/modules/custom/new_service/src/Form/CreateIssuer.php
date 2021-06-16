@@ -300,6 +300,13 @@ class CreateIssuer extends FormBase {
     /*$image = file_get_contents('badgr_image');
     $base = base64_encode($image);
     ddl($base);*/
+    $badgr_entity_id = $form_state->getValue('badgr_entity_id');
+    $badge_entity_id = $form_state->getValue('badge_entity_id');
+    $badgr_option = $form_state->getValue('badgr_option');
+    $badgr_name = $form_state->getValue('badgr_name');
+    $badgr_description = $form_state->getValue('badgr_description');
+    $badgr_criteriaUrl = $form_state->getValue('badgr_criteriaUrl');
+    if(($badgr_option == ('Create')) || ($badgr_option == ('Update'))) {
     $badgr_image = $form_state->getValue('badgr_image');
     foreach ($badgr_image as $value) {
       ddl($value);
@@ -312,13 +319,8 @@ class CreateIssuer extends FormBase {
     $ext = pathinfo($path, PATHINFO_EXTENSION);
     $base64img = base64_encode($img_file);
     $base64img = "data:image/{$ext};base64,{$base64img}";
+  }
 
-    $badgr_entity_id = $form_state->getValue('badgr_entity_id');
-    $badge_entity_id = $form_state->getValue('badge_entity_id');
-    $badgr_option = $form_state->getValue('badgr_option');
-    $badgr_name = $form_state->getValue('badgr_name');
-    $badgr_description = $form_state->getValue('badgr_description');
-    $badgr_criteriaUrl = $form_state->getValue('badgr_criteriaUrl');
     
     $service = \Drupal::service('new_service.demo_badge');
     $config = $this->config('new_service.settings');

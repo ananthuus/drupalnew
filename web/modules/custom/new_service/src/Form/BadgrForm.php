@@ -271,7 +271,8 @@ class BadgrForm extends FormBase {
       $service->badgr_update_issuer($accessToken, $entity_id, $post_details);
      } 
     elseif ($issuer_option == ('List')) {
-      $list = $service->badgr_read_issuer($accessToken);      
+      $list = $service->badgr_read_issuer($accessToken);
+      dsm($list);    
     }
   }
 }
