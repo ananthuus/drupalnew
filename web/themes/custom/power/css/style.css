@@ -20,3 +20,24 @@
   margin: 0 auto;
   color: green;
 }
+.region region-navigation {
+  background-color: gray;
+}
+/*.sf-depth-1 {
+  color: red;
+}*/
+.active-trail sf-depth-1 sf-no-children {
+  color: orange;
+}
+/*.sf-depth-1 {
+  color: red;
+}*/
+.active-trail sf-depth-1 sf-no-children {
+  color: orange;
+}
+.region .region-navigation {
+  background-color: red;
+}
+.block-superfish {
+  background-color: yellow;
+}

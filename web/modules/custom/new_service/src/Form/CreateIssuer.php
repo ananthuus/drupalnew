@@ -40,34 +40,6 @@ class CreateIssuer extends FormBase {
       '#description' => "Select the type of operation",
       '#options' => $form['badgr_type_options']['#value'],
     );
-
-    /*$form['my_file'] = array(
-      '#type' => 'managed_file',
-      '#title' => 'my file',
-      '#name' => 'my_custom_file',
-      '#description' => $this->t('my file description'),
-      '#default_value' => $config->get('my_file'),
-      '#upload_location' => 'public://'
-    ); */
-  /*  $form['badgr_entity_id'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Issuer entity ID'),
-      //'#required' => TRUE,
-      '#states' => [
-        'optional' => [
-          ['select[name="badgr_option"]' => ['value' => 'Create']],
-          ['select[name="badgr_option"]' => ['value' => 'Update']],
-          ['select[name="badgr_option"]' => ['value' => 'List']],
-          ['select[name="badgr_option"]' => ['value' => 'None']],
-        ],
-        'invisible' => [
-          ':input[name="badgr_option"]' => ['value' => 'List'],
-          //':input[name="issuer_option"]' => ['value' => 'None'],
-          ':input[name="badgr_option"]' => ['value' => 'Update'],
-        ],
-      ],
-    ); */ 
-
     $form['badgr_entity_id'] = [
       '#type' => 'textfield',
       '#title' => t('Issuer entity ID'),
@@ -86,24 +58,6 @@ class CreateIssuer extends FormBase {
         ],
       ],
     ];
-   /* $form['badge_entity_id'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Badger entity ID'),
-      //'#required' => TRUE,
-      '#states' => [
-        'optional' => [
-          ['select[name="badgr_option"]' => ['value' => 'Create']],
-          ['select[name="badgr_option"]' => ['value' => 'Update']],
-          ['select[name="badgr_option"]' => ['value' => 'List']],
-          ['select[name="badgr_option"]' => ['value' => 'None']],
-        ],
-        'invisible' => [
-          ':input[name="badgr_option"]' => ['value' => 'List'],
-          //':input[name="issuer_option"]' => ['value' => 'None'],
-          ':input[name="badgr_option"]' => ['value' => 'Create'],
-        ],
-      ],
-    );  */
     $form['badge_entity_id'] = [
       '#type' => 'textfield',
       '#title' => t('Badger entity ID'),
@@ -121,8 +75,7 @@ class CreateIssuer extends FormBase {
           ['select[name="badgr_option"]' => ['value' => 'None']],
         ],
       ],
-    ];
-    
+    ];    
     $form['badgr_image'] = [
       '#type' => 'managed_file',
       '#title' => t('Image:'),
@@ -142,42 +95,6 @@ class CreateIssuer extends FormBase {
         ],
       ],
     ];
-
-
-    /*$form['badgr_image'] = [
-      '#type' => 'managed_file',
-      '#title' => t('Image'),
-      '#states' => [
-        'optional' => [
-          // 'select[name="action"]' => ['value' => 'update'],
-          ['select[name="badgr_option"]' => ['value' => 'Create']],
-          ['select[name="badgr_option"]' => ['value' => 'Update']],
-          ['select[name="badgr_option"]' => ['value' => 'List']],
-          ['select[name="badgr_option"]' => ['value' => 'None']],
-        ],
-        'invisible' => [
-          ['select[name="badgr_option"]' => ['value' => 'List']],
-          ['select[name="badgr_option"]' => ['value' => 'None']],
-        ],
-      ],
-    ];*/
-
-    /*$form['badgr_name'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Name:'),
-      //'#required' => TRUE,
-      '#states' => [
-        'optional' => [
-          ['select[name="badgr_option"]' => ['value' => 'Create']],
-          ['select[name="badgr_option"]' => ['value' => 'Update']],
-          ['select[name="badgr_option"]' => ['value' => 'List']],
-          ['select[name="badgr_option"]' => ['value' => 'None']],
-        ],
-        'invisible' => ['select[name="badgr_option"]' => ['value' => 'List']],
-          //':input[name="issuer_option"]' => ['value' => 'None'],
-      ],
-    ); */ 
-
     $form['badgr_name'] = [
       '#type' => 'textfield',
       '#title' => t('Name:'),
@@ -195,24 +112,6 @@ class CreateIssuer extends FormBase {
         ],
       ],
     ];
-    /*$form['badgr_description'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Description:'),
-      //'#required' => TRUE,
-      '#states' => [
-        'optional' => [
-          ['select[name="badgr_option"]' => ['value' => 'Create']],
-          ['select[name="badgr_option"]' => ['value' => 'Update']],
-          ['select[name="badgr_option"]' => ['value' => 'List']],
-          ['select[name="badgr_option"]' => ['value' => 'None']],
-        ],
-        'invisible' => [
-          ':input[name="badgr_option"]' => ['value' => 'List'],
-          //':input[name="issuer_option"]' => ['value' => 'None'],
-        ],
-      ],
-    ); */
-
     $form['badgr_description'] = [
       '#type' => 'textfield',
       '#title' => t('Description:'),
@@ -230,7 +129,6 @@ class CreateIssuer extends FormBase {
         ],
       ],
     ];
-
     $form['badgr_criteriaUrl'] = [
       '#type' => 'textfield',
       '#title' => t('criteriaUrl:'),
@@ -248,24 +146,6 @@ class CreateIssuer extends FormBase {
         ],
       ],
     ];
-/*
-     $form['badgr_criteriaUrl'] = array(
-      '#type' => 'textfield',
-      '#title' => t('criteriaUrl:'),
-      //'#required' => TRUE,
-      '#states' => [
-        'optional' => [
-          ['select[name="badgr_option"]' => ['value' => 'Create']],
-          ['select[name="badgr_option"]' => ['value' => 'Update']],
-          ['select[name="badgr_option"]' => ['value' => 'List']],
-          ['select[name="badgr_option"]' => ['value' => 'None']],
-        ],
-        'invisible' => [
-          ':input[name="badgr_option"]' => ['value' => 'List'],
-          //':input[name="issuer_option"]' => ['value' => 'None'],
-        ],
-      ],
-    ); */
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = array(
       '#type' => 'submit',
@@ -278,28 +158,6 @@ class CreateIssuer extends FormBase {
    
   }
   public function submitForm(array &$form, FormStateInterface $form_state) {
-
-    //$path = 'myfolder/myimage.png';
-    //$badgr_image = $form_state->getValue('badgr_image');
-    /*$type = pathinfo( $badgr_image, PATHINFO_EXTENSION);
-    $data = file_get_contents($badgr_image);
-    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-    ddl($base64);*/
-
-    //ddl($badgr_image);
-
-    /*$file = $form_state->getValue('badgr_image');
-    ksm($file);
-    ddl($file);*/
-
-  /*  $fid = reset($form_state->getValue('badgr_image'));
-    File::load($fid);*/
-
-
-    //$image = base64_decode($array->'badgr_image');
-    /*$image = file_get_contents('badgr_image');
-    $base = base64_encode($image);
-    ddl($base);*/
     $badgr_entity_id = $form_state->getValue('badgr_entity_id');
     $badge_entity_id = $form_state->getValue('badge_entity_id');
     $badgr_option = $form_state->getValue('badgr_option');
@@ -307,31 +165,27 @@ class CreateIssuer extends FormBase {
     $badgr_description = $form_state->getValue('badgr_description');
     $badgr_criteriaUrl = $form_state->getValue('badgr_criteriaUrl');
     if(($badgr_option == ('Create')) || ($badgr_option == ('Update'))) {
-    $badgr_image = $form_state->getValue('badgr_image');
-    foreach ($badgr_image as $value) {
-      ddl($value);
-    }
-    $fid = $value;//The file ID
-    ddl($fid);
-    $file = \Drupal\file\Entity\File::load($fid);
-    $path = $file->getFileUri();
-    $img_file = file_get_contents($path);
-    $ext = pathinfo($path, PATHINFO_EXTENSION);
-    $base64img = base64_encode($img_file);
-    $base64img = "data:image/{$ext};base64,{$base64img}";
-  }
-
-    
+      $badgr_image = $form_state->getValue('badgr_image');
+      foreach ($badgr_image as $value) {
+        //ddl($value);
+        }
+      $fid = $value;//The file ID
+      //ddl($fid);
+      $file = \Drupal\file\Entity\File::load($fid);
+      $path = $file->getFileUri();
+      $img_file = file_get_contents($path);
+      $ext = pathinfo($path, PATHINFO_EXTENSION);
+      $base64img = base64_encode($img_file);
+      $base64img = "data:image/{$ext};base64,{$base64img}";
+      }   
     $service = \Drupal::service('new_service.demo_badge');
     $config = $this->config('new_service.settings');
     $username = $config->get('username');
     $password = $config->get('password');
-    $post_data = ['username' => $username,'password' => $password];
-    
+    $post_data = ['username' => $username,'password' => $password];    
     $result = $service->badgr_initiate($post_data);
     $rt = $result['refreshtoken'];
     $accessToken = $result['accesstoken'];
-
     $badge_details = ['image' => $base64img, 'name' => $badgr_name, 'description' => $badgr_description, 'criteriaUrl' => $badgr_criteriaUrl];
     $update_badge_details = ['image' => $base64img, 'name' => $badgr_name, 'description' => $badgr_description, 'criteriaUrl' => $badgr_criteriaUrl];
     //$service->badgr_create_issuer_badges($accessToken, $badge_details);
